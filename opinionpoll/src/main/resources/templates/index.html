@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular.min.js"></script>
+    <script>
+
+	      var part1 = angular.module("part1", []);
+
+	      part1.controller("getAll", function($scope, $http, $timeout) {
+
+	        $scope.tasks = [];
+
+
+	        $scope.getTasks = function() {
+
+	          $http.post("rest/users/all", $scope.task);
+
+	        }
+
+	        $scope.addTask = function() {
+
+	          $http.get("rest/users/all")
+
+	            .success(function(data) {
+
+	              $scope.tasks = data;
+
+	            });
+	        }
+
+	        $scope.activateRealtime = function() {
+
+	          $scope.getTasks();
+
+	          $timeout($scope.activateRealtime, 1000);
+
+	        }
+
+	      });
+
+	    </script>
+    </head>
+</head>
+<body>
+<p>This ID Coming from SpringBoot Controller: {{getAll.data}}</p>
+<button type="button" ng-click="addTask()" class="btn btn-success">Add task</button>
+</body>
+</html>
