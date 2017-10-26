@@ -3,16 +3,19 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { ExperimentComponent } from './experiment/experiment.component';
+import { RestaurantEntryComponent } from './restaurant-entry/restaurant-entry.component';
+
+import { StarRatingModule } from 'angular-star-rating';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ExperimentComponent
+    RestaurantEntryComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    StarRatingModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
