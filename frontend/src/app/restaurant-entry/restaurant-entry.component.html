@@ -1,0 +1,22 @@
+
+
+<div class="ui middle aligned divided list">
+  <div *ngFor="let r of restaurants"  class="item">
+    <div class="ui grid">
+      <div class="two wide column"><img class="ui avatar image" src="/images/avatar2/small/lena.png">{{ r.name }}</div>
+      <div class="nine wide column"></div>
+      <div class="three wide column">
+        <star-rating-comp [starType]="'svg'" [rating]="r.rating"></star-rating-comp>
+      </div>
+      <div class="two wide column">
+        <!--<div class="right floated content">-->
+        <div class="ui button">Reviews</div>
+        <!--</div>-->
+      </div>
+    </div>
+
+
+
+
+  </div>
+</div>
